@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: jobsearch-api
+    env: docker
+    region: frankfurt
+    healthCheckPath: /health
+    autoDeploy: true
+    plan: starter
+    envVars:
+      - key: QDRANT_URL
+        sync: false
+      - key: QDRANT_API_KEY
+        sync: false
+      - key: QDRANT_COLLECTION
+        value: stellenanzeigen
+      - key: DENSE_VECTOR_NAME
+        value: dense
+      - key: SPARSE_VECTOR_NAME
+        value: sparse
+      - key: DENSE_MODEL
+        value: sentence-transformers/all-MiniLM-L6-v2
+      - key: SPARSE_MODEL
+        value: prithivida/Splade_PP_en_v1
